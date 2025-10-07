@@ -28,7 +28,10 @@ def solveLinearSystem(A, b):
     if isConsistent(A, b):
     # Rückwärtseinsetzen
         for i in range(n-1, -1, -1):
-            x[i] = (b[i] - np.dot(A[i,i+1:], x[i+1:])) / A[i,i]
+            if A[i, i] == 0:
+                x[i] = b[i]
+            else:
+                x[i] = (b[i] - np.dot(A[i,i+1:], x[i+1:])) / A[i,i]
 
         return x
 
