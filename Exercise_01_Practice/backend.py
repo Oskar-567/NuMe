@@ -29,7 +29,7 @@ def solveLinearSystem(A, b):
     # Rückwärtseinsetzen
         for i in range(n-1, -1, -1):
             if A[i, i] == 0:
-                x[i] = b[i]
+                x[i] = b[i]         #theoretically infinetly many solutions, but assume x[i] = b[i], to get one solution
             else:
                 x[i] = (b[i] - np.dot(A[i,i+1:], x[i+1:])) / A[i,i]
 
